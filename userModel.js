@@ -55,8 +55,8 @@ userSchema.pre('save', function encrypt(next) {
 
 
 var user = module.exports = mongoose.model('user', userSchema);
-// module.exports.get = function (callback, limit) {
-//     user.find(callback).limit(limit);
-// }
+module.exports.get = function (callback, limit) {
+    user.find(callback).limit(limit);
+}
 
 
