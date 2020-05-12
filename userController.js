@@ -17,3 +17,20 @@ exports.new = (req,res) => {
             });
         });
 };
+
+exports.login = async (req,res) => {
+    const user = await User.findOne({email : req.body.email})
+    if (!user) {
+        res.json({
+            message: 'Wrong email or password'
+        })
+      } else {
+          const isMatch = await user.comparePassword(req.body.password);
+          if(isMatch)
+          {
+              res.json({
+                  message:"Authentication successful"
+              })
+          }
+      }
+}

@@ -9,6 +9,9 @@ router.get('/',  (req, res) => {
 
 var userController = require('./userController');
 
+
 router.route('/user').post(userController.new);
+
+router.route('/login').post(userController.login);
 
 module.exports = router;
