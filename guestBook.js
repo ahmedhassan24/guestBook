@@ -23,13 +23,15 @@ var port = process.env.PORT || 8080;
 
 app.get('/', (req, res) => res.send('Guestbook here'));
 
-app.listen(port, function () {
+app.listen(port, () => {
     console.log("Running on port " + port);
 });
 
-let apiRoutes = require("./routes.js");
+let apiRoutes = require("./routes");
 
 app.use("/api",apiRoutes);
+
+
 
 
 
